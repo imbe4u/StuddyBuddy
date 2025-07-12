@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>StudyBuddy</title>
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap'>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="nav">
+        <div class="logo">
+            <h2 class="logo1">Study</h2>
+            <h2 class="logo2">Buddy</h2>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Enter Course Name...">
+            <button>
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div class="navbar">
+           <a href="#" class="atag">Your Notes</a>
+           <a href="login.php" class="atag">Logout</a>
+        </div>
+    </div> 
+    <hr>
+    <div class="sidebar">
+        <div class="left">
+        <h2>Welcome,</h2>
+        <ul>
+        <li><a href="#">Your Courses</a></li>
+            <li><a href="#">Create Note</a></li>
+            <li><a href="#">View Notes</a></li>
+            <li><a href="addCourse.html">Add Course</a></li>
+            <li><a href="#">View All Courses</a></li>
+            <li><a href="#">Your Achievements</a></li>
+        </ul>
+    </div>
+    <div class="right">
+      
+
+       <?php
+$courseFile = 'courses.json';
+if (file_exists($courseFile)) {
+    $courses = json_decode(file_get_contents($courseFile), true);
+    echo '<div class="course-gallery">';
+    foreach ($courses as $course) {
+        echo '<div class="course-card">';
+        echo '<div class="img">';
+        echo '<img src="' . htmlspecialchars($course['thumbnail']) . '" alt="Thumbnail" />';
+        echo '</div>';
+        echo '<h3>' . htmlspecialchars($course['name']) . '</h3>';
+        echo '<p><a href="' . htmlspecialchars($course['url']) . '" target="_blank">Visit Course</a></p>';
+        echo '</div>';
+    }
+    echo '</div>';
+}
+?>
+    
+    </div>
+</div>
+
+
+
+
+    <footer>
+    <div class="content">
+        <p>&copy;All Rights Reserved to Anshu Singh.</p>
+    </div>
+    </footer>
+</body>
+</html>

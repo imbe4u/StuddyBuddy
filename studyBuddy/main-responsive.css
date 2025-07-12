@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+:root {
+    --nav-height: 70px;
+    --mobile-nav-height: 60px;
+    --font-large: clamp(1.5rem, 3vw, 2rem);
+    --font-medium: clamp(1rem, 2vw, 1.5rem);
+    --font-small: clamp(0.875rem, 1.5vw, 1rem);
+    --second-color: #ffffff;
+    --primary-bg: #f4f4f4;
+    --hover-bg: #ddd;
+}
+
+body {
+    background-image: url("assest/bkg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Navigation */
+.nav {
+    height: var(--nav-height);
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(25px);
+    padding: 0 1rem;
+}
+
+.navbar {
+    display: flex;
+    gap: 1.5rem;
+    margin-right: 2rem;
+    font-size: var(--font-medium);
+}
+
+.atag {
+    border-radius: 5px;
+    backdrop-filter: blur(25px);
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.atag:hover {
+    transform: scale(1.05);
+    background-color: var(--hover-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav {
+        height: var(--mobile-nav-height);
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .navbar {
+        width: 100%;
+        margin: 0.5rem 0 0;
+        justify-content: space-around;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        font-size: var(--font-small);
+    }
+}
+
+/* Sidebar and content */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.left {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--primary-bg);
+    padding: 1.25rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.left ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.left ul li {
+    margin: 1rem 0;
+}
+
+.left ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: var(--font-small);
+    display: block;
+    padding: 0.75rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.left ul li a:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Footer */
+footer {
+    height: 3rem;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
